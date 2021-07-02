@@ -1,0 +1,13 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Aaxis\Train\Block\User $block */
+
+$user = $block->getUser();
+?>
+<?php if(!is_null($user)) : ?>
+  <?= $user->getFirstName()?>&nbsp;<?= $user->getLastName()?>
+<?php endif; ?>
