@@ -2,12 +2,11 @@
 
 namespace Aaxis\Train\Block;
 
-use Magento\Framework\App\Request\Http;
 use Magento\Framework\Data\Collection;
 use Magento\Framework\View\Element\Template;
+use Magento\Framework\View\Element\Template\Context;
 use Magento\User\Api\Data\UserInterface;
 use Magento\User\Model\UserFactory;
-use Magento\Framework\View\Element\Template\Context;
 
 class User extends Template
 {
@@ -20,22 +19,20 @@ class User extends Template
     /** @var UserInterface */
     protected $user;
 
-
     /**
      * User constructor.
+     * @param UserFactory $userInterfaceFactory
      * @param Context $context
      * @param array $data
-     * @param UserFactory $userInterfaceFactory
      */
     public function __construct(
+        UserFactory $userInterfaceFactory,
         Context $context,
-        array $data = [],
-        UserFactory $userInterfaceFactory
+        array $data = []
     ) {
         parent::__construct($context, $data);
         $this->userInterfaceFactory = $userInterfaceFactory;
     }
-
 
     public function getUser()
     {
@@ -50,5 +47,4 @@ class User extends Template
         }
         return $this->user;
     }
-
 }
